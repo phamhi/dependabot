@@ -7,6 +7,21 @@ def parse_args() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        '-o', '--output-file',
+        help='Ouput file (defaults to "output.<DATE>_<TIME>.json")',
+        dest='output_file',
+        default='default',
+    )
+
+    parser.add_argument(
+        '--no-output-stdout',
+        help='Display data on stdout (defaults to "True")',
+        action='store_const',
+        dest='output_stdout',
+        const=False, default=True,
+    )
+
+    parser.add_argument(
         '--show-dependabot-alerts-only',
         help='Enable repos with depedendabot alerts enabled only',
         action='store_const',
